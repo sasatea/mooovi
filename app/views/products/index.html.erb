@@ -1,4 +1,4 @@
-  <div id="main_cnt_wrapper">
+     <div id="main_cnt_wrapper">
     <div id="yjContentsBody">
       <div class="yjContainer">
         <span class="yjGuid"><a id="yjContentsStart" name="yjContentsStart"></a><img alt="ここから本文です" height="1" src="http://i.yimg.jp/yui/jp/tmpl/1.1.0/audionav.gif" width="1"></span>
@@ -19,9 +19,15 @@
                         <%= product.title %>
                       </h3>
                       <p class="text-small">
+                        <% if product.reviews.present? %>
+                        <sapn class="rating-star">
+                          <i class="star-actived rate-<%= product.reviews.average(:rate).round %>0"></i>
+                       </sapn>
+                        <% else %>
                         <span class="rating-star">
-                          <i class="star-actived rate-[ここに評価を表示]0"></i>
+                          <i class="star-actived rate-0"></i>
                         </span>
+                        <% end %>
                       </p>
                     </div>
                   </li>
